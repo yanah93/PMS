@@ -10,6 +10,9 @@ namespace PMS.Helpers
         {
             CreateMap<UserAccountModel, UserAccountDto>();
             CreateMap<UserAccountDto, UserAccountModel>();
+
+            CreateMap<EmployeeModel, EmployeeDto>();
+            CreateMap<EmployeeDto, EmployeeModel>();
         }
         
     }

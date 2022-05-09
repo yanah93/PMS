@@ -64,12 +64,14 @@ namespace PMS.Controllers
                 });
 
             }
-            var userAccDto = _mapper.Map<UserAccountModel>(userAccDtoObj);
+            var userAcc = _mapper.Map<UserAccountModel>(userAccDtoObj);
             EncDecPassword.CreateHashPassword(userAccDtoObj.Password, out byte[] passwordHash, out byte[] passwordSalt);
-            userAccDto.PasswordHash = passwordHash;
-            userAccDto.PasswordSalt = passwordSalt;
-            userAccDto.RegistrationTime = DateTime.Now;
-            await _userContext.AddAsync(userAccDto);
+            userAcc.PasswordHash = passwordHash;
+            userAcc.PasswordSalt = passwordSalt;
+            userAcc.FirstName = EmployeeController.CapitalizeFirstLetter(userAccDtoObj.FirstName);
+            userAcc.LastName = EmployeeController.CapitalizeFirstLetter(userAccDtoObj.LastName);
+            userAcc.RegistrationTime = DateTime.Now;
+            await _userContext.AddAsync(userAcc);
             await _userContext.SaveChangesAsync();
             return Ok(new
             {
@@ -97,11 +99,17 @@ namespace PMS.Controllers
                     Message = "User not found"
                 });
             }
-            var userAccDto = _mapper.Map<UserAccountModel>(userAccDtoObj);
-            userAccDto.PasswordSalt = isUserExist.PasswordSalt;
-            userAccDto.PasswordHash = isUserExist.PasswordHash;
-            userAccDto.RegistrationTime = isUserExist.RegistrationTime;
-            _userContext.Entry(userAccDto).State = EntityState.Modified;
+            var userAcc = _mapper.Map<UserAccountModel>(userAccDtoObj);
+            //Keeps value unchanged
+            userAcc.PasswordSalt = isUserExist.PasswordSalt;
+            userAcc.PasswordHash = isUserExist.PasswordHash;
+            userAcc.RegistrationTime = isUserExist.RegistrationTime;
+            //Capitalized first letter of the word
+            userAcc.FirstName = EmployeeController.CapitalizeFirstLetter(userAccDtoObj.FirstName);
+            userAcc.LastName = EmployeeController.CapitalizeFirstLetter(userAccDtoObj.LastName);
+            //updates the database
+            _userContext.Entry(userAcc).State = EntityState.Modified;
+            //saves the changes
             await _userContext.SaveChangesAsync();
             return Ok(new
             {
