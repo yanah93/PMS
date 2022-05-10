@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace PMS.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
