@@ -12,12 +12,10 @@ namespace PMS.Controllers
     public class RoleController : ControllerBase
     {
         private readonly PMScontext _roleContext;
-        private readonly IMapper _mapper;
 
-        public RoleController(PMScontext roleContext, IMapper mapper)
+        public RoleController(PMScontext roleContext)
         {
             this._roleContext = roleContext;
-            this._mapper = mapper;
         }
         [HttpGet("getAllRoles")]
         public async Task<ActionResult<RoleModel>>GetAllRoles()

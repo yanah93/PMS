@@ -13,6 +13,9 @@ namespace PMS.Helpers
 
             CreateMap<EmployeeModel, EmployeeDto>();
             CreateMap<EmployeeDto, EmployeeModel>();
+
+            CreateMap<TeamMemberModel, TeamMembersDto>();
+            CreateMap<TeamMembersDto, TeamMemberModel>();
         }
         
     }

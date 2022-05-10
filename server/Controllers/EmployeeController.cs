@@ -198,7 +198,7 @@ namespace PMS.Controllers
                 Result = employee
             });
         }
-        [HttpDelete("deleteEmployee")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult<EmployeeDto>> DeleteEmployee (int id)
         {
             var employee = await _employeeContext.EmployeeModels.FindAsync(id);
