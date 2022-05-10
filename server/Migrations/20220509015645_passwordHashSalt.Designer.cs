@@ -12,8 +12,8 @@ using PMS.Data;
 namespace PMS.Migrations
 {
     [DbContext(typeof(PMScontext))]
-    [Migration("20220509015645_v2")]
-    partial class v2
+    [Migration("20220509015645_passwordHashSalt")]
+    partial class passwordHashSalt
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

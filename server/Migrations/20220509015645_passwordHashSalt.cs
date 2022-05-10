@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PMS.Migrations
 {
-    public partial class v2 : Migration
+    public partial class passwordHashSalt : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

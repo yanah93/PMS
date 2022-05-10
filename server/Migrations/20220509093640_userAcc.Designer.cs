@@ -12,8 +12,8 @@ using PMS.Data;
 namespace PMS.Migrations
 {
     [DbContext(typeof(PMScontext))]
-    [Migration("20220509093640_v3")]
-    partial class v3
+    [Migration("20220509093640_userAcc")]
+    partial class userAcc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

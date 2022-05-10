@@ -4,7 +4,7 @@
 
 namespace PMS.Migrations
 {
-    public partial class v3 : Migration
+    public partial class userAcc : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
