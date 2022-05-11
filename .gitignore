@@ -1,3 +1,10 @@
+server/bin/Debug/net6.0/appsettings.json
+server/bin/Debug/net6.0/PMS.deps.json
+server/obj/PMS.csproj.nuget.dgspec.json
+server/obj/project.assets.json
+server/obj/Debug/net6.0/PMS.csproj.FileListAbsolute.txt
+/server/obj/Debug/net6.0
+
 # The following command works for downloading when using Git for Windows:
 # curl -LOf http://gist.githubusercontent.com/kmorcinek/2710267/raw/.gitignore
 #
