@@ -1,27 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Maryana\\OneDrive\\Desktop\\GECO_ACCENTURE\\Projects\\PMS-2ndCapstone\\server\\PMS.csproj": {}
+    "C:\\Users\\Sofyan\\Desktop\\PMS\\server\\PMS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Maryana\\OneDrive\\Desktop\\GECO_ACCENTURE\\Projects\\PMS-2ndCapstone\\server\\PMS.csproj": {
+    "C:\\Users\\Sofyan\\Desktop\\PMS\\server\\PMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Maryana\\OneDrive\\Desktop\\GECO_ACCENTURE\\Projects\\PMS-2ndCapstone\\server\\PMS.csproj",
+        "projectUniqueName": "C:\\Users\\Sofyan\\Desktop\\PMS\\server\\PMS.csproj",
         "projectName": "PMS",
-        "projectPath": "C:\\Users\\Maryana\\OneDrive\\Desktop\\GECO_ACCENTURE\\Projects\\PMS-2ndCapstone\\server\\PMS.csproj",
-        "packagesPath": "C:\\Users\\Maryana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Maryana\\OneDrive\\Desktop\\GECO_ACCENTURE\\Projects\\PMS-2ndCapstone\\server\\obj\\",
+        "projectPath": "C:\\Users\\Sofyan\\Desktop\\PMS\\server\\PMS.csproj",
+        "packagesPath": "C:\\Users\\Sofyan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sofyan\\Desktop\\PMS\\server\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Maryana\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Sofyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
