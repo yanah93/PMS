@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PMS.Data;
 
@@ -11,9 +12,10 @@ using PMS.Data;
 namespace PMS.Migrations
 {
     [DbContext(typeof(PMScontext))]
-    partial class PMScontextModelSnapshot : ModelSnapshot
+    [Migration("20220509093640_userAcc")]
+    partial class userAcc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,31 +23,6 @@ namespace PMS.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("PMS.Model.ClientPartnerModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("CpAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CpDetails")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CpName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ClientPartner", (string)null);
-                });
 
             modelBuilder.Entity("PMS.Model.EmployeeModel", b =>
                 {
@@ -71,93 +48,6 @@ namespace PMS.Migrations
                     b.HasIndex("UserAccountId");
 
                     b.ToTable("Employee", (string)null);
-                });
-
-            modelBuilder.Entity("PMS.Model.OnProjectModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("ClientPartnerId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateEnd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStart")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("isClient")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("isPartner")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OnProject", (string)null);
-                });
-
-            modelBuilder.Entity("PMS.Model.ProjectManagerModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserAccountId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProjectManager", (string)null);
-                });
-
-            modelBuilder.Entity("PMS.Model.ProjectModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime?>("ActualEndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("ActualStartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("PlannedEndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("PlannedStartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ProjectDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProjectName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Project", (string)null);
                 });
 
             modelBuilder.Entity("PMS.Model.RoleModel", b =>
