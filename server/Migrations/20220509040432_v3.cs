@@ -15,9 +15,9 @@ namespace PMS.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CpName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CpAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CpDetails = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    CpName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CpAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CpDetails = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -32,11 +32,11 @@ namespace PMS.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProjectId = table.Column<int>(type: "int", nullable: true),
                     ClientPartnerId = table.Column<int>(type: "int", nullable: true),
-                    DateStart = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    isClient = table.Column<bool>(type: "bit", nullable: false),
-                    isPartner = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    DateStart = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DateEnd = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    isClient = table.Column<bool>(type: "bit", nullable: true),
+                    isPartner = table.Column<bool>(type: "bit", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,10 +49,10 @@ namespace PMS.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProjectName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProjectDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PlannedStartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PlannedEndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProjectName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjectDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PlannedStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PlannedEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ActualStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ActualEndDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
