@@ -6,6 +6,7 @@ using PMS.Data;
 using PMS.Dtos;
 using PMS.Helpers;
 using PMS.Model;
+using PMS.Services;
 
 namespace PMS.Controllers
 {
@@ -15,6 +16,7 @@ namespace PMS.Controllers
     {
         private readonly PMScontext _userContext;
         private readonly IMapper _mapper;
+        
         public UsersController(PMScontext userContext, IMapper mapper)
         {
             this._userContext = userContext;
@@ -65,6 +67,7 @@ namespace PMS.Controllers
 
             }
             var userAcc = _mapper.Map<UserAccountModel>(userAccDtoObj);
+            userAccDtoObj.Password = "Accenture2022";
             EncDecPassword.CreateHashPassword(userAccDtoObj.Password, out byte[] passwordHash, out byte[] passwordSalt);
             userAcc.PasswordHash = passwordHash;
             userAcc.PasswordSalt = passwordSalt;
@@ -73,6 +76,7 @@ namespace PMS.Controllers
             userAcc.RegistrationTime = DateTime.Now;
             await _userContext.AddAsync(userAcc);
             await _userContext.SaveChangesAsync();
+
             return Ok(new
             {
                 StatusCode = 200,

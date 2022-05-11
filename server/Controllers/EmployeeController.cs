@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using PMS.Data;
 using PMS.Dtos;
 using PMS.Model;
+using PMS.Services;
 using System.Globalization;
 
 namespace PMS.Controllers
@@ -15,11 +16,13 @@ namespace PMS.Controllers
     {
         private readonly PMScontext _employeeContext;
         private readonly IMapper _mapper;
+        private readonly IMailService _mailService;
 
-        public EmployeeController(PMScontext employeeContext, IMapper mapper)
+        public EmployeeController(PMScontext employeeContext, IMapper mapper, IMailService mailService)
         {
             this._employeeContext = employeeContext;
             this._mapper = mapper;
+            this._mailService = mailService;
         }
         //retrieve all employees in database
         [HttpGet]
@@ -126,11 +129,28 @@ namespace PMS.Controllers
 
             //Takes the value of the first name and last name from the user account.
             var userAcc = await _employeeContext.UserAccounts.FirstOrDefaultAsync(x =>x.Id == employeeDtoObj.UserAccountId);
+            var userAccount = _mapper.Map<UserAccountDto>(userAcc);
+            userAccount.Password = "Accenture2022";
             employeeObj.EmployeeName = userAcc.FirstName + " " + userAcc.LastName;
 
             employeeObj.UserAccountId = employeeDtoObj.UserAccountId;
             await _employeeContext.EmployeeModels.AddAsync(employeeObj);
             await _employeeContext.SaveChangesAsync();
+
+            MailRequest mailRequest = new MailRequest();
+            mailRequest.ToEmail = userAcc.Email;
+            mailRequest.Subject = "Account Created!";
+            mailRequest.Body = "Hi " + userAcc.FirstName + " " + userAcc.LastName + "," + "<br>" +
+                                "<p>Your Profile has been created in our Company</p>"
+                                + "Below is your Login Credentials for accessing the Portal<br>"
+                                + "Your Email : " + "<strong>" + userAcc.Email + "</strong><br>"
+                                + "Your Password : " + "<strong>" + userAccount.Password + "</strong><br>"
+                                + "<br><br>"
+                                + "Kindly change your password after initial " + "<a href='http://localhost:4200/login'" + ">Log in.</a>"
+                                + "<br><br>Kind Regards,<br>Maryanah Yusoff";
+
+            await _mailService.SendEmailAsync(mailRequest);
+
             return Ok(new
             {
                 StatusCode = 200,
