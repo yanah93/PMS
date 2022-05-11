@@ -19,6 +19,8 @@ builder.Services.AddDbContext<PMScontext>(option =>
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "MyPolicy", builder =>
