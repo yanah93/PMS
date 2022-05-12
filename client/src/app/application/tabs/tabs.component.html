@@ -1,0 +1,17 @@
+<mat-tab-group animationDuration="0ms" mat-align-tabs="center">
+  <mat-tab label="New User Details"
+    ><app-create-new-user></app-create-new-user
+  ></mat-tab>
+  <mat-tab label="New Employee Details"
+    ><app-create-new-employee></app-create-new-employee>
+  </mat-tab>
+  <mat-tab label="Add Team Members"
+    ><app-add-team-members></app-add-team-members
+  ></mat-tab>
+  <mat-tab label="Roles & Teams">
+    <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
+      <mat-tab label="New Role"><app-new-role></app-new-role></mat-tab>
+      <mat-tab label="New Team"><app-new-team></app-new-team></mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+</mat-tab-group>

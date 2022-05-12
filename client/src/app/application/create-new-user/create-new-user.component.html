@@ -1,1 +1,91 @@
-<p>create-new-user works!</p>
+<div class="container">
+  <div class="card mt-3 mb-3 col-md-6 offset-md-3">
+    <div class="card-body">
+      <div class="row justify-content-md-center">
+        <h1 class="row justify-content-md-center">Create New User</h1>
+        <form [formGroup]="userForm" class="row justify-content-md-center">
+          <div class="form-group col-md-7 mb-3">
+            <label for="inputEmail4"
+              >Email <span class="text-danger">*</span></label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail4"
+              placeholder="Email"
+              formControlName="Email"
+            />
+          </div>
+          <!-- <div class="form-group col-md-6">
+                             <label for="inputPassword4">Password</label>
+                             <input type="password" class="form-control" id="inputPassword4" placeholder="Password" formControlName="Password">
+                           </div> -->
+
+          <div class="form-group col-md-7 mb-3">
+            <label for="inputUserName"
+              >UserName <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="inputUserName"
+              placeholder="alice.chia"
+              formControlName="UserName"
+            />
+          </div>
+          <div class="form-group col-md-7 mb-3">
+            <label for="inputFirstName"
+              >First Name <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="inputFirstName"
+              placeholder="Alice"
+              formControlName="FirstName"
+            />
+          </div>
+
+          <div class="form-group col-md-7 mb-3">
+            <label for="inputLastName"
+              >Last Name <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="inputLastName"
+              placeholder="Chia"
+              formControlName="LastName"
+            />
+          </div>
+
+          <div class="form-group mb-3 offset-md-10">
+            <div class="form-check">
+              <input
+                (click)="clickEvent()"
+                class="form-check-input"
+                type="checkbox"
+                id="gridCheck"
+                formControlName="isProjectManager"
+              />
+              <label class="form-check-label" for="gridCheck">
+                Project Manager
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="close-emp"
+              class="btn btn-primary"
+              (click)="addNewUser()"
+            >
+              Submit!
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

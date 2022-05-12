@@ -34,7 +34,7 @@ namespace PMS.Controllers
                 Result = mappedUserList
             });
         }
-        [HttpGet("getUserById{id}")]
+        [HttpGet("getUserById_{id}")]
         public async Task<ActionResult<UserAccountDto>>GetUserById(int id)
         {
             var user = await _userContext.UserAccounts.FindAsync(id);

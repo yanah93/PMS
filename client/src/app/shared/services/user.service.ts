@@ -10,16 +10,16 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getAllUsers() {
-    return this.http.get<any>(this.baseApiUrl)
+    return this.http.get<any>(`${this.baseApiUrl}getAllUsers`)
   }
-  profile(id: number) {
-    return this.http.get<any>(`${this.baseApiUrl}getUserById${id}`)
+  getUserById(id: number) {
+    return this.http.get<any>(`${this.baseApiUrl}getUserById_${id}`)
   }
-  adduser(formData: any) {
-    return this.http.post<any>(`${this.baseApiUrl}add`,formData)
+  adduser(useObj: any) {
+    return this.http.post<any>(`${this.baseApiUrl}addUser`,useObj)
   }
   updateUser(userObj: any) {
-    return this.http.put<any>(`${this.baseApiUrl}update`, userObj);
+    return this.http.put<any>(`${this.baseApiUrl}updateUser`, userObj);
   }
   removeUser(id: number) {
     return this.http.delete<any>(`${this.baseApiUrl}${id}`)

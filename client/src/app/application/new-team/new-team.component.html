@@ -1,0 +1,35 @@
+<div class="container">
+     <div class="card mt-3 mb-3 col-md-6 offset-md-3">
+       <div class="card-body">
+         <div class="row justify-content-md-center">
+           <h1 class="row justify-content-md-center">Create New Team</h1>
+           <form [formGroup]="teamForm" class="row justify-content-md-center">
+   
+             <div class="form-group col-md-7 mb-3">
+               <label for="inputUserName">Team Name <span class="text-danger">*</span></label>
+               <input
+                 type="text"
+                 class="form-control"
+                 id="inputTeamName"
+                 placeholder="Pvt_SweeHeng_Web_TeamA"
+                 formControlName="teamName"
+               />
+             </div>
+            
+   
+             <div class="modal-footer">
+               <button
+                 type="button"
+                 id="close-emp"
+                 class="btn btn-primary"
+                (click)="addNewTeam()"
+               >
+                 Submit!
+               </button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+   

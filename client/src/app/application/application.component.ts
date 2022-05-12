@@ -41,7 +41,7 @@ export class ApplicationComponent implements OnInit {
     
   }
   getProfile() {
-    this.userService.profile(this.user)
+    this.userService.getUserById(this.user)
     .subscribe({
       next: (res) => {
         this.user = res.result;

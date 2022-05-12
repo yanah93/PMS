@@ -1,0 +1,51 @@
+<div class="container">
+     <div class="card mt-3 mb-3 col-md-6 offset-md-3">
+       <div class="card-body">
+         <div class="row justify-content-md-center">
+              <h1 class="row justify-content-md-center">Create New Employee</h1>
+           <form [formGroup]="employeeForm" class="row justify-content-md-center">
+             
+             <div class="form-group col-md-7 mb-3">
+               <label for="inputUserName">Employee Code <span class="text-danger">*</span></label>
+               <input
+                 type="text"
+                 class="form-control"
+                 id="inputUserName"
+                 placeholder="A001"
+                 formControlName="employeeeCode"
+               />
+             </div>
+   
+             
+   
+             <div class="col-md-7 mb-3">
+               <div class="form-group">
+                 <label class="col-form-label"
+                   >Employee Name <span class="text-danger">*</span></label
+                 >
+                 <select
+                   formControlName="userAccountId"
+                   
+                   class="form-select"
+                   aria-label="Default select example"
+                 >
+                   <option selected value="">Select Employee</option>
+                   <ng-container *ngFor="let user of userList">
+                     <option [ngValue]="user.id">{{ user.firstName }} {{user.lastName}}</option>
+                     
+                   </ng-container>
+                 </select>
+               </div>
+             </div>
+   
+             <div class="modal-footer">
+               <button type="button" id="close-emp" class="btn btn-primary" (click)="addNewEmp()">
+                 Submit!
+               </button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+   
