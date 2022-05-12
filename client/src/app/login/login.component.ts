@@ -44,14 +44,12 @@ export class LoginComponent implements OnInit {
           alert(res.message);
 
           localStorage.setItem('token', res.token);
-          if (this.authService.getUserRole() === 'False') {
-            this.router.navigate(['blog/blogdashboard'])
-          } else if (this.authService.getUserRole() === 'True') {
-            this.router.navigate(['blog/dashboard/', Number(this.authService.getUserId())])
+          if (this.authService.getUserRole() === 'True') {
+            this.router.navigate(['application/dashboard'])
+          } else {
+            this.router.navigate(['application/profile/:id'])
           }
-          else {
-            this.router.navigate(['blog/setting'])
-          }
+         
         },
         error: (err) => {
           alert("Email and password does not match!")

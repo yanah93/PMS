@@ -6,14 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  public baseApiUrl:string = "https://https://localhost:7232//Users/"
+  public baseApiUrl:string = "https://localhost:7232/Users/"
   constructor(private http: HttpClient) { }
 
   getAllUsers() {
     return this.http.get<any>(this.baseApiUrl)
   }
-  getUserById(id: number) {
-    return this.http.get<any>(`${this.baseApiUrl}user${id}`)
+  profile(id: number) {
+    return this.http.get<any>(`${this.baseApiUrl}getUserById${id}`)
   }
   adduser(formData: any) {
     return this.http.post<any>(`${this.baseApiUrl}add`,formData)
