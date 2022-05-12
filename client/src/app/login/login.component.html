@@ -1,0 +1,120 @@
+<div class="account-content">
+     <div class="container">
+       <div class="account-logo">
+         <img src="assets/P.png" width="250" alt="" />
+       </div>
+       <div class="account-box">
+         <div class="account-wrraper">
+           <h3 class="account-title">Login</h3>
+           <p class="account-subtitle">Access to Portal</p>
+           <form [formGroup]="loginForm">
+             <div class="form-group">
+               <label>Email Address</label
+               ><input type="text" formControlName="email" class="form-control" />
+             </div>
+             <div class="form-group">
+               <div class="row">
+                 <div class="col">
+                   <label>Password</label>
+                 </div>
+                 <div class="col-auto">
+                   <a
+                     class="text-muted forgotPassword"
+                     data-bs-toggle="modal"
+                     data-bs-target="#resetPWModal"
+                     >Forgot password?</a
+                   >
+                 </div>
+               </div>
+               <div class="position-relative">
+                 <input
+                   *ngIf="!hidePassword"
+                   formControlName="password"
+                   class="form-control pass"
+                   type="text"
+                   id="togglePassword"
+                 />
+                 <input
+                   *ngIf="hidePassword"
+                   formControlName="password"
+                   class="form-control pass"
+                   type="password"
+                   id="togglePassword"
+                 /><span
+                   class="fa toggle-password fa-eye-slash"
+                   (click)="toggleShow()"
+                   *ngIf="!hidePassword"
+                 ></span>
+                 <span
+                   class="fa toggle-password fa-eye"
+                   (click)="toggleShow()"
+                   *ngIf="hidePassword"
+                 ></span>
+               </div>
+             </div>
+             <div class="form-group text-center">
+               <button
+                 type="submit"
+                 (click)="login()"
+                 class="btn btn-primary account-btn"
+               >
+                 login
+               </button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+   
+   
+   <!-- Reset form modal -->
+   <div
+     class="modal fade"
+     id="resetPWModal"
+     tabindex="-1"
+     aria-labelledby="resetPWModalLabel"
+     aria-hidden="true"
+   >
+     <div class="modal-dialog modal-dialog-centered modal-lg">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="resetPWModalLabel">Reset Password</h5>
+           <button
+             type="button"
+             id="close-emp"
+             class="btn-close"
+             data-bs-dismiss="modal"
+             aria-label="Close"
+           ></button>
+         </div>
+         <div class="modal-body">
+           <form [formGroup]="resetPWForm">
+               <div class="w-50">
+                 <div class="form-group">
+                   <label class="col-form-label"
+                     >Email <span class="text-danger">*</span></label
+                   >
+                   <input
+                     type="text"
+                     formControlName="email"
+                     class="form-control"
+                   />
+                 </div>
+               </div>
+           </form>
+         </div>
+         <div class="modal-footer">
+           <button
+             type="button"
+             (click)="resetPassword()"
+             id="close-emp"
+             class="btn btn-primary"
+           >
+             Reset Password!
+           </button>
+         </div>
+       </div>
+     </div>
+   </div>
+   

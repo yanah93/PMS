@@ -1,0 +1,99 @@
+<div class="d-flex" id="wrapper">
+     <div
+       class="bg-light border-right sidebar"
+       id="sidebar-wrapper"
+       [ngClass]="status ? 'hide' : 'show'"
+     >
+       <div class="sidebar-heading">PMS</div>
+       <div class="list-group list-group-flush">
+         <button
+           class="btn text-light sidebar-nav"
+           *ngIf="currentRole == 'True'"
+           routerLinkActive="btn-active"
+           routerLink="hrDashboard"
+         >
+           Dashboard
+         </button>
+         <button
+           class="btn text-light sidebar-nav"
+           *ngIf="currentRole == 'True'"
+           routerLinkActive="btn-active"
+           routerLink="createNewUser"
+         >
+           New User
+        </button>
+         <button
+           class="btn text-light sidebar-nav"
+           *ngIf="currentRole === 'False'"
+           routerLinkActive="btn-active"
+           routerLink="profile"
+         >
+           Profile
+         </button>
+       </div>
+     </div>
+     <div id="page-content-wrapper">
+       <nav class="navbar navbar-expand-lg header sticky-top">
+         <div class="container-fluid">
+           <button class="btn btn-current" (click)="clickEvent()">
+             <i class="fa fa-bars"></i>
+           </button>
+   
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                 <a class="nav-link active" aria-current="page">Home</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link">About</a>
+               </li>
+             </ul>
+             <form class="d-flex">
+               <div class="container">
+                 <div class="half">
+                   <img
+                     
+                     style="
+                       width: 50px;
+                       height: 50px;
+                       border-radius: 50%;
+                       padding-right: auto;
+                     "
+                   />
+                   <label for="profile2" class="profile-dropdown">
+                     <input type="checkbox" id="profile2" />
+                     <span>{{ this.auth.getLoggedInUser() }}</span>
+                     <label for="profile2"><i class="fa fa-bars"></i></label>
+                     <ul
+                       style="
+                         border-bottom: 1px solid #ededed;
+                         box-shadow: 0 1px 1px #0003;
+                       "
+                     >
+                       <li>
+                         <a><i class="mdi mdi-email-outline"></i>Messages</a>
+                       </li>
+                       <li>
+                         <a (click)="seeDetails()"
+                           ><i class="mdi mdi-settings"></i>Settings</a
+                         >
+                       </li>
+                       <li routerLink="/">
+                         <a><i class="mdi mdi-logout"></i>Logout</a>
+                       </li>
+                     </ul>
+                   </label>
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+       </nav>
+   
+       <div class="container-fluid">
+         <router-outlet></router-outlet>
+       </div>
+     </div>
+     <!-- /#page-content-wrapper -->
+   </div>
+   <!-- /#wrapper -->
