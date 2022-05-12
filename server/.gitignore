@@ -1,0 +1,6 @@
+
+*.dll
+*.vs/PMS/DesignTimeBuild
+*.vs/PMS/v17
+*/bin/debug
+*/obj/Debug
