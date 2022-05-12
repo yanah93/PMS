@@ -1,1 +1,86 @@
-<p>profile works!</p>
+<div class="container">
+  <div class="card mt-3 mb-3 col-md-6 offset-md-3">
+    <div class="card-body">
+      <div class="row justify-content-md-center">
+        <div class="content container-fluid">
+          <div class="page-header d-flex justify-content-between">
+            <div class="page-title">
+              <h3>Profile</h3>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <div class="profile-view">
+                <div class="profile-basic">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="profile-info-left">
+                        <h3 class="user-name m-t-0 mb-0">
+                          {{ userData.firstName }} {{ userData.lastName }}
+                          <span class="text-muted"
+                            >@ {{ userData.username }}</span
+                          >
+                        </h3>
+                        <h4 class="text-muted"></h4>
+                        <h5 class="text-muted">Email: {{ userData.email }}</h5>
+
+                        <div class="staff-id">
+                          Employee ID : {{ empData.id }}
+                          <h6 class="text-muted">
+                            Project Manager: {{ userData.isProjectManager }}
+                          </h6>
+                        </div>
+                        <div class="small doj text-muted">
+                          EmployeeCode : {{ empData.employeeeCode }}
+                        </div>
+                   
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="card mt-3 mb-3 col-md-6 offset-md-3">
+    <div class="card-body">
+      <div class="row justify-content-md-center">
+        <h1 class="row justify-content-md-center">Roles & Teams</h1>
+        <table class="table justify-content-md-center">
+          <thead>
+               
+            <tr>
+              <th scope="col">Team</th>
+              <th scope="col">Role</th>
+            </tr>
+          </thead>
+          <ng-container *ngFor="let user of teamData">
+          <tbody>
+            <tr>
+              <td>
+                
+                  {{ user.team.teamName }}
+               
+              </td>
+              <td>
+                
+                 {{ user.role.roleName }}
+                
+              </td>
+            </tr>
+          </tbody>
+     </ng-container>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

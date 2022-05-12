@@ -18,15 +18,14 @@
            class="btn text-light sidebar-nav"
            *ngIf="currentRole == 'True'"
            routerLinkActive="btn-active"
-           routerLink="createNewUser"
+           routerLink="create"
          >
-           New User
+           Create New
         </button>
          <button
            class="btn text-light sidebar-nav"
-           *ngIf="currentRole === 'False'"
            routerLinkActive="btn-active"
-           routerLink="profile"
+           [routerLink]="['/application/profile/',this.auth.getUserId()]"
          >
            Profile
          </button>

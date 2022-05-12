@@ -6,6 +6,14 @@ import { ApplicationComponent } from './application.component';
 import { HrDashboardComponent } from './hr-dashboard/hr-dashboard.component';
 import { CreateNewUserComponent } from './create-new-user/create-new-user.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TabsComponent } from './tabs/tabs.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { CreateNewEmployeeComponent } from './create-new-employee/create-new-employee.component';
+import { AddTeamMembersComponent } from './add-team-members/add-team-members.component';
+import { NewRoleComponent } from './new-role/new-role.component';
+import { NewTeamComponent } from './new-team/new-team.component';
+
 
 
 @NgModule({
@@ -13,11 +21,19 @@ import { ProfileComponent } from './profile/profile.component';
     ApplicationComponent,
     HrDashboardComponent,
     CreateNewUserComponent,
-    ProfileComponent
+    ProfileComponent,
+    TabsComponent,
+    CreateNewEmployeeComponent,
+    AddTeamMembersComponent,
+    NewRoleComponent,
+    NewTeamComponent
   ],
   imports: [
     CommonModule,
-    ApplicationRoutingModule
+    ApplicationRoutingModule,
+    ReactiveFormsModule,
+    MatTabsModule,
+    CommonModule
   ]
 })
 export class ApplicationModule { }
