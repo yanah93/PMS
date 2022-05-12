@@ -82,6 +82,7 @@ namespace PMS.Controllers
                 new Claim("Email" , user.Email),
                 new Claim("Name", user.Username),
                 new Claim("UserId", user.Id.ToString()),
+                new Claim("ProjectManager", user.IsProjectManager.ToString()),
             };
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSetting:SecretKey").Value));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);

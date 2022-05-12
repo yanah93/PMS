@@ -1,0 +1,299 @@
+body {
+     overflow-x: hidden;
+ }
+ .container{
+     //font-family: 'Caveat Brush';
+     font-family: Poppins, sans-serif
+ }
+ button{
+     //font-family: 'Caveat Brush';
+     font-family: Poppins, sans-serif
+ }
+ 
+ #wrapper {
+     background: #f7f7f7;
+ }
+ 
+ .nav-link {
+     color: #696d7d;
+     //font-family: 'Caveat Brush';
+     font-family: Poppins, sans-serif
+ }
+ 
+ .nav-link:hover {
+     color: #ff8fab;
+     //font-family: 'Caveat Brush';
+     font-family: Poppins, sans-serif
+ }
+ 
+ .header {
+     background: #fff;
+     border-bottom: 1px solid #ededed;
+     box-shadow: 0 1px 1px #0003;
+     height: 60px;
+     z-index: 1002;
+     color: #000 !important;
+ }
+ 
+ .btn-active {
+     color: #000 !important;
+     font-weight: 400;
+     font-size: 1.3rem;
+     scale: (1.2);
+ }
+ 
+ .active {
+     color: #fe6694 !important;
+ }
+ 
+ #sidebar-wrapper {
+     min-height: 100vh;
+     margin-left: -15rem;
+     -webkit-transition: margin .25s ease-out;
+     -moz-transition: margin .25s ease-out;
+     -o-transition: margin .25s ease-out;
+     transition: margin .25s ease-out;
+     background: linear-gradient(to left, #ffc2d1 22%, #ff8fab 100%);
+     color: #fff;
+ }
+ 
+ #sidebar-wrapper .sidebar-heading {
+     padding: 0.875rem 1.25rem;
+     font-size: 1.5rem;
+     //font-family: 'Caveat Brush';
+     font-family: Poppins, sans-serif
+ 
+ 
+ }
+ 
+ .sidebar-nav {
+     padding: 15px;
+ }
+ 
+ #sidebar-wrapper .list-group {
+     width: 15rem;
+     
+ }
+ 
+ #page-content-wrapper {
+     min-width: 100vw;
+ }
+ 
+ #wrapper.toggled #sidebar-wrapper {
+     margin-left: 0;
+ }
+ 
+ @media (min-width: 768px) {
+     #sidebar-wrapper {
+         margin-left: 0;
+     }
+     #page-content-wrapper {
+         min-width: 0;
+         width: 100%;
+     }
+     .show {
+         margin-left: 0!important;
+     }
+     .hide {
+         margin-left: -15rem!important;
+     }
+ }
+ 
+ @media (max-width: 767px) {
+     .show {
+         margin-left: -15rem!important;
+     }
+     .hide {
+         margin-left: -0!important;
+     }
+ }
+ 
+ $border-radius: 3px;
+ $primary: #f2f2f2;
+ $active: #ff8fab;
+ $animation: pulse;
+ .profile-dropdown {
+     display: inline-block;
+     position: relative;
+     padding-top: 25px;
+     background: #fff;
+     margin: 0;
+     font-weight: bold;
+     font-size: 1rem;
+     border-radius: $border-radius;
+     -webkit-user-select: none;
+     /* Chrome all / Safari all */
+     -moz-user-select: none;
+     /* Firefox all */
+     -ms-user-select: none;
+     /* IE 10+ */
+     user-select: none;
+     /* Likely future */
+     * {
+         -webkit-user-select: none;
+         /* Chrome all / Safari all */
+         -moz-user-select: none;
+         /* Firefox all */
+         -ms-user-select: none;
+         /* IE 10+ */
+         user-select: none;
+         /* Likely future */
+     }
+     input[type="checkbox"] {
+         display: none;
+         &:checked {
+             &~ul {
+                 display: block;
+                 animation: $animation .5s;
+             }
+             &~img {
+                 background: $active;
+             }
+             &~label {
+                 background: $active;
+                 i {
+                     color: $primary;
+                 }
+                 &:after {
+                     content: '';
+                     position: absolute;
+                     top: 100%;
+                     right: calc(50% - 10px);
+                     display: block;
+                     border-style: solid;
+                     border-width: 7px 10px 0 10px;
+                     border-color: $active transparent transparent transparent;
+                     width: 0;
+                     height: 0;
+                 }
+             }
+         }
+     }
+     img {
+         display: inline-block;
+         background: darken($primary, 10%);
+         height: 2.5rem;
+         vertical-align: middle;
+         margin-right: 1rem;
+         margin: .5rem .75rem .5rem .5rem;
+         border-radius: 50%;
+     }
+     span {
+         display: inline-block;
+         vertical-align: sub;
+         width: 125px;
+         margin-right: 2rem;
+         overflow: hidden;
+         white-space: inline;
+         text-overflow: ellipsis;
+     }
+     ul {
+         display: none;
+         list-style: none;
+         padding: 0;
+         margin: 0;
+         background: #fff;
+         position: absolute;
+         top: 100%;
+         right: 0;
+         width: 100%;
+         border-radius: $border-radius;
+         li {
+             a {
+                 display: block;
+                 padding: .75rem 1rem;
+                 text-decoration: none;
+                 color: darken($primary, 50%);
+                 font-size: 1rem;
+                 i {
+                     font-size: 1.3rem;
+                     vertical-align: middle;
+                     margin: 0 .75rem 0 -.25rem;
+                 }
+                 &:hover {
+                     background: darken($primary, 5%);
+                 }
+             }
+             &:first-child a:hover {
+                 border-radius: $border-radius $border-radius 0 0;
+             }
+             &:last-child a:hover {
+                 border-radius: 0 0 $border-radius $border-radius;
+             }
+         }
+     }
+     &>label {
+         position: relative;
+         height: 3.5rem;
+         display: block;
+         text-decoration: none;
+         background: transparent;
+         color: #333;
+         box-sizing: border-box;
+         padding: .9rem;
+         float: right;
+         border-radius: 0 $border-radius $border-radius 0;
+         i {
+             color: darken($primary, 25%);
+             font-size: 1.75rem;
+         }
+     }
+     &:after {
+         content: '';
+         display: table;
+         clear: both;
+     }
+ }
+ 
+ ::ng-deep .ngx-menu {
+     padding: 0;
+     text-align: center;
+ }
+ 
+ ::ng-deep .ngx-pagination-range-dropdown-button {
+     width: 60px;
+ }
+ 
+ ::ng-deep .ngx-table__header-search {
+     display: block;
+     width: 100%;
+     padding: 1rem 1rem !important;
+     font-size: 1rem;
+     font-weight: 400;
+     line-height: 1.5;
+     color: #212529;
+     background-color: #fff;
+     background-clip: padding-box;
+     border: 1px solid #ced4da;
+     -webkit-appearance: none;
+     appearance: none;
+     border-radius: 0.25rem;
+     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ }
+ 
+ ::ng-deep .ngx-table__header-title {
+     display: inline;
+     color: #333;
+     font-weight: 600;
+     font-size: 1rem;
+ }
+ 
+ ::ng-deep .ngx-pagination .current {
+     padding: 0.1875rem 0.625rem;
+     background: linear-gradient(to right, #ff9b44 0%, #fc6075 100%);
+     color: #fefefe;
+     cursor: default;
+ }
+ 
+ ::ng-deep .ngx-table td {
+     border-bottom: 1px solid #e7e9ed;
+     padding: 12px 6px;
+     font-weight: 600;
+     font-size: 0.8rem;
+ }
+ 
+ .modal-footer {
+     border: 0 !important;
+ }
+ 
+ 
