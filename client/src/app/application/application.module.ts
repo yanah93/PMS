@@ -6,6 +6,10 @@ import { ApplicationComponent } from './application.component';
 import { HrDashboardComponent } from './hr-dashboard/hr-dashboard.component';
 import { CreateNewUserComponent } from './create-new-user/create-new-user.component';
 import { ProfileComponent } from './profile/profile.component';
+
+import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
+import { ProjectComponent } from './project/project.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { TabsComponent } from './tabs/tabs.component';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -15,6 +19,8 @@ import { NewRoleComponent } from './new-role/new-role.component';
 import { NewTeamComponent } from './new-team/new-team.component';
 
 
+=====
+
 
 @NgModule({
   declarations: [
@@ -22,11 +28,16 @@ import { NewTeamComponent } from './new-team/new-team.component';
     HrDashboardComponent,
     CreateNewUserComponent,
     ProfileComponent,
+
+    ProjectDashboardComponent,
+    ProjectComponent
+=======
     TabsComponent,
     CreateNewEmployeeComponent,
     AddTeamMembersComponent,
     NewRoleComponent,
     NewTeamComponent
+
   ],
   imports: [
     CommonModule,
