@@ -1,0 +1,25 @@
+
+<table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">Project Name</th>
+        <th scope="col">Project Description</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let row of projectList">
+        <td scope="row"> {{row.projectName}} </td>
+        
+        <td> {{row.projectDescription}} </td>
+    
+        <td> 
+          <button (click)="deleteProject(row.id)">Delete</button> 
+            | 
+          <button (click)="viewMore(row.id)">View</button>  
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+  
+  
