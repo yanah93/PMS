@@ -1,1 +1,118 @@
-<p>hr-dashboard works!</p>
+<div class="container">
+     <div class="card mt-3 mb-3 col-sm-8 ">
+       <div class="card-body">
+         <div class="row justify-content-md-center">
+           <div class="content container-fluid">
+             <div class="page-header d-flex justify-content-between">
+               <div class="page-title">
+                 <h3>List of Users</h3>
+               </div>
+             </div>
+           </div>
+<table class="table">
+     <thead>
+       <tr>
+         <th scope="col">#</th>
+         <th scope="col">First Name</th>
+         <th scope="col">Last Name</th>
+         <th scope="col">UserName</th>
+         <th scope="col">Email</th>
+         <th scope="col">Project Manager</th>
+       </tr>
+     </thead>
+     <ng-container *ngFor="let user of userList">
+          <tbody>
+            <tr>
+              <td scope="row">
+                  {{ user.id }}
+              </td>
+              <td >
+                 {{ user.firstName }}
+              </td>
+              <td >
+               {{ user.lastName }}
+            </td>
+            <td >
+               {{ user.username }}
+            </td>
+            <td >
+               {{ user.email }}
+            </td>
+            <td >
+               {{ user.isProjectManager }}
+            </td>
+            <td class="profile-action"><button
+              
+               data-bs-toggle="modal"
+               data-bs-target="#editpostModal"
+               class="btn"
+               type="button"
+             >
+               <i class="fa fa-pencil" aria-hidden="true"></i>
+               <span class="caret"></span>
+             </button>
+             <button  class="btn" type="button">
+               <i class="fa fa-trash-o" aria-hidden="true"></i>
+               <span class="caret"></span>
+             </button></td>
+            </tr>
+          </tbody>
+     </ng-container>
+     
+   </table>
+         </div>
+       </div>
+     </div>
+</div>
+
+<div class="container">
+     <div class="card mt-3 mb-3 col-sm-3 ">
+       <div class="card-body">
+         <div class="row justify-content-md-center">
+           <div class="content container-fluid">
+             <div class="page-header d-flex justify-content-between">
+               <div class="page-title">
+                 <h3>List of Teams</h3>
+               </div>
+             </div>
+           </div>
+<table class="table">
+     <thead>
+       <tr>
+         <th scope="col">#</th>
+         <th scope="col">Teams</th>
+       </tr>
+     </thead>
+     <ng-container *ngFor="let user of teamList">
+          <tbody>
+            <tr>
+              <td scope="row">
+                  {{ user.id }}
+              </td>
+              <td >
+                 {{ user.teamName }}
+              </td>
+
+            <td class="profile-action"><button
+              
+               data-bs-toggle="modal"
+               data-bs-target="#editpostModal"
+               class="btn"
+               type="button"
+             >
+               <i class="fa fa-pencil" aria-hidden="true"></i>
+               <span class="caret"></span>
+             </button>
+             <button  class="btn" type="button">
+               <i class="fa fa-trash-o" aria-hidden="true"></i>
+               <span class="caret"></span>
+             </button></td>
+            </tr>
+          </tbody>
+     </ng-container>
+     
+   </table>
+         </div>
+       </div>
+     </div>
+</div>

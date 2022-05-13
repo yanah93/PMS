@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="card mt-3 mb-3 col-md-6 offset-md-3">
+    <div class="card-body">
+      <div>
+        <h1 class="row justify-content-md-center">Add Team Members</h1>
+        <form class="row justify-content-md-center" [formGroup]="teamMemberForm">
+          <div class="col-md-7 mb-3">
+            <div class="form-group">
+              <label class="col-form-label"
+                >Team Name <span class="text-danger">*</span></label
+              >
+              <select
+                formControlName="teamId"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected value="">Select Team</option>
+                <ng-container *ngFor="let team of teamList">
+                  <option [ngValue]="team.id">
+                    {{ team.teamName }}
+                  </option>
+                </ng-container>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-7 mb-3">
+            <div class="form-group">
+              <label class="col-form-label"
+                >Role Name <span class="text-danger">*</span></label
+              >
+              <select
+                formControlName="roleId"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected value="">Select Role</option>
+                <ng-container *ngFor="let role of roleList">
+                  <option [ngValue]="role.id">
+                    {{ role.roleName }}
+                  </option>
+                </ng-container>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-7 mb-3">
+            <div class="form-group">
+              <label class="col-form-label"
+                >Employee Name <span class="text-danger">*</span></label
+              >
+              <select
+                formControlName="employeeId"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected value="">Select Employee</option>
+                <ng-container *ngFor="let emp of employeeList">
+                  <option [ngValue]="emp.id">
+                    {{ emp.employeeName }}
+                  </option>
+                </ng-container>
+              </select>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" id="close-emp" class="btn btn-primary" (click)="addNewteamMember()">
+              Submit!
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

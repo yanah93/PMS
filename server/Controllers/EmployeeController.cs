@@ -38,7 +38,7 @@ namespace PMS.Controllers
         }
 
         //search by employeeCode need to be an exact match to find.
-        [HttpGet("getEmployeeByCode")]
+        [HttpGet("getEmployeeByCode_{Code}")]
         public async Task<ActionResult<EmployeeModel>> GetEmployeeByCode(string Code)
         {
             var employee = await _employeeContext.EmployeeModels.Include(x => x.UserAccount).FirstOrDefaultAsync(x => x.EmployeeeCode == Code);
@@ -58,10 +58,30 @@ namespace PMS.Controllers
             });
         }
 
+        [HttpGet("getEmployeeById_{id}")]
+        public async Task<ActionResult<EmployeeModel>> GetEmployeeById(int id)
+        {
+            var employee = await _employeeContext.EmployeeModels.Include(x => x.UserAccount).FirstOrDefaultAsync(x => x.UserAccountId == id);
+            if (employee == null)
+            {
+                return NotFound(new
+                {
+                    StatusCode = 404,
+                    Message = "Employee not found"
+                });
+            }
+            return Ok(new
+            {
+                StatusCode = 200,
+                Message = "Success",
+                Results = employee
+            });
+        }
+
         //only loads the first record with the search field. 
         //NEED TO FIND BETTER WAY TO SEARCH.
         //PENDING
-        [HttpGet("getEmployeeByName")]
+        [HttpGet("getEmployeeByName_{Name}")]
         public async Task<ActionResult<EmployeeModel>> GetEmployeeByName(string Name)
         {
             var employee = await _employeeContext.EmployeeModels.FirstOrDefaultAsync(x => x.EmployeeName.Contains(Name));
@@ -147,7 +167,7 @@ namespace PMS.Controllers
                                 + "Your Password : " + "<strong>" + userAccount.Password + "</strong><br>"
                                 + "<br><br>"
                                 + "Kindly change your password after initial " + "<a href='http://localhost:4200/login'" + ">Log in.</a>"
-                                + "<br><br>Kind Regards,<br>Maryanah Yusoff";
+                                + "<br><br>Kind Regards,<br>Management Department";
 
             await _mailService.SendEmailAsync(mailRequest);
 

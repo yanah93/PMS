@@ -4,8 +4,12 @@ import { ApplicationComponent } from './application.component';
 import { CreateNewUserComponent } from './create-new-user/create-new-user.component';
 import { HrDashboardComponent } from './hr-dashboard/hr-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 import { ProjectComponent } from './project/project.component';
+=======
+import { TabsComponent } from './tabs/tabs.component';
+
 
 const routes: Routes = [
   {
@@ -13,7 +17,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo:'hrDashboard', pathMatch:'full'},
       { path: 'hrDashboard', component: HrDashboardComponent},
-      { path: 'createNewUser', component: CreateNewUserComponent },
+      { path: 'create', component: TabsComponent },
       { path: 'profile/:id', component: ProfileComponent},
       { path: 'projectDashboard', component: ProjectDashboardComponent},
       { path: 'project/:id', component: ProjectComponent}

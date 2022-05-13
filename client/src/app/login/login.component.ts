@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
           if (this.authService.getUserRole() === 'True') {
             this.router.navigate(['application/hrDashboard'])
           } else {
-            this.router.navigate(['application/profile/:id'])
+            this.router.navigate(['application/profile/', Number(this.authService.getUserId())])
           }
          
         },

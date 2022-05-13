@@ -32,7 +32,7 @@ namespace PMS.Controllers
                 Result = teamMembersList
             });
         }
-        [HttpGet("getTeamMembersByTeamId")]
+        [HttpGet("getTeamMembersByTeamId_{id}")]
         public async Task<ActionResult<TeamMemberModel>> GetTeamMembersByTeamId(int id)
         {
             var teamMember = _teamMemberContext.TeamMemberModels.Where(x => x.TeamId == id).Include(x => x.Team).Include(x => x.Role).Include(x => x.Employee);
@@ -53,8 +53,29 @@ namespace PMS.Controllers
                 Result = teamMember
             });
         }
+        [HttpGet("getTeamMembersByEmployeeId_{id}")]
+        public async Task<ActionResult<TeamMemberModel>> GetTeamMembersByEmployeeId(int id)
+        {
+            var teamMember = _teamMemberContext.TeamMemberModels.Where(x => x.EmployeeId == id).Include(x => x.Employee).Include(x => x.Team).Include(x => x.Role);
+            var teamMem = await _teamMemberContext.TeamMemberModels.FirstOrDefaultAsync(x => x.EmployeeId == id);
+            if (teamMem == null)
+            {
+                return NotFound(new
+                {
+                    StatusCode = 404,
+                    Message = "Employee not found"
+                });
+            }
 
-        [HttpGet("getTeamMembersByTeamName")]
+            return Ok(new
+            {
+                StatusCode = 200,
+                Message = "Success",
+                Result = teamMember
+            });
+        }
+
+        [HttpGet("getTeamMembersByTeamName_{teamName}")]
         public async Task<ActionResult<TeamMemberModel>> GetTeamMembersByTeamName(string teamName)
         {
             var teamMember = _teamMemberContext.TeamMemberModels.Where(x => x.Team.TeamName.Equals(teamName)).Include(x => x.Team).Include(x => x.Role).Include(x => x.Employee);
