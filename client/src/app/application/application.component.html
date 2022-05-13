@@ -12,8 +12,18 @@
            routerLinkActive="btn-active"
            routerLink="hrDashboard"
          >
-           Dashboard
+          HR Dashboard
          </button>
+
+         <button
+           class="btn text-light sidebar-nav"
+           *ngIf="currentRole == 'True'"
+           routerLinkActive="btn-active"
+           routerLink="projectDashboard"
+         >
+          Project Dashboard
+         </button>
+
          <button
            class="btn text-light sidebar-nav"
            *ngIf="currentRole == 'True'"

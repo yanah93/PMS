@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
           localStorage.setItem('token', res.token);
           if (this.authService.getUserRole() === 'True') {
-            this.router.navigate(['application/dashboard'])
+            this.router.navigate(['application/hrDashboard'])
           } else {
             this.router.navigate(['application/profile/:id'])
           }

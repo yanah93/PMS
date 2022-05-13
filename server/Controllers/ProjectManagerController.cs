@@ -10,16 +10,16 @@ namespace PMS.Controllers
     [ApiController]
     public class ProjectManagerController : ControllerBase
     {
-        private readonly PMScontext _pmsContext;
-        public ProjectManagerController(PMScontext pmsContext)
+        private readonly PMScontext _pmContext;
+        public ProjectManagerController(PMScontext pmContext)
         {
-            this._pmsContext = pmsContext;
+            this._pmContext = pmContext;
         }
 
         [HttpGet]
         public async Task<ActionResult<ProjectManagerModel>> GetAllProjectManagers()
         {
-            var projectManagerList = await _pmsContext.ProjectManagerModels.ToListAsync();
+            var projectManagerList = await _pmContext.ProjectManagerModels.Include(a => a.UserAccount).ToListAsync();
             return Ok(new
             {
                 StatusCode = 200,
@@ -31,7 +31,7 @@ namespace PMS.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ProjectManagerModel>> GetProjectManagersById(int id)
         {
-            var projectManagers = await _pmsContext.ProjectManagerModels.FindAsync(id);
+            var projectManagers = await _pmContext.ProjectManagerModels.FindAsync(id);
             if (projectManagers == null)
             {
                 return NotFound(new
@@ -59,8 +59,8 @@ namespace PMS.Controllers
                     Message = "Please input data to add!"
                 });
             }
-            var projectMgr = await _pmsContext.ProjectManagerModels.AddAsync(projectMgrObj);
-            await _pmsContext.SaveChangesAsync();
+            var projectMgr = await _pmContext.ProjectManagerModels.AddAsync(projectMgrObj);
+            await _pmContext.SaveChangesAsync();
             return Ok(new
             {
                 StatusCode = 200,
@@ -79,7 +79,7 @@ namespace PMS.Controllers
                     Message = "Please send data to update!"
                 });
             }
-            var isPMExist = await _pmsContext.ProjectManagerModels.AsNoTracking().FirstOrDefaultAsync(a => a.Id == projectMgrObj.Id);
+            var isPMExist = await _pmContext.ProjectManagerModels.AsNoTracking().FirstOrDefaultAsync(a => a.Id == projectMgrObj.Id);
             if (isPMExist == null)
             {
                 return NotFound(new
@@ -88,8 +88,8 @@ namespace PMS.Controllers
                     Message = "PM not Found"
                 });
             }
-            _pmsContext.Entry(projectMgrObj).State = EntityState.Modified;
-            await _pmsContext.SaveChangesAsync();
+            _pmContext.Entry(projectMgrObj).State = EntityState.Modified;
+            await _pmContext.SaveChangesAsync();
             return Ok(new
             {
                 StatusCode = 200,
@@ -100,7 +100,7 @@ namespace PMS.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<ProjectManagerModel>> DeleteProjectMgr(int id)
         {
-            var projectMgr = await _pmsContext.ProjectManagerModels.FindAsync(id);
+            var projectMgr = await _pmContext.ProjectManagerModels.FindAsync(id);
             if (projectMgr == null)
             {
                 return NotFound(new
@@ -109,8 +109,8 @@ namespace PMS.Controllers
                     Message = "Project Manager not Found!"
                 });
             }
-            _pmsContext.ProjectManagerModels.Remove(projectMgr);
-            await _pmsContext.SaveChangesAsync();
+            _pmContext.ProjectManagerModels.Remove(projectMgr);
+            await _pmContext.SaveChangesAsync();
             return Ok(new
             {
                 StatusCode = 200,
